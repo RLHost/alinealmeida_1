@@ -29,4 +29,4 @@ User-agent: FacebookBot
 Allow: /
 
 # Sitemap Location
-Sitemap: https://espacodeaprendizagem.com.br/sitemap.xml
+Sitemap: https://espacoadh.com.br/sitemap.xml

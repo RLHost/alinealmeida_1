@@ -215,7 +215,7 @@ const Hero = () => {
           <div className="flex items-center gap-4 text-sm text-gray-500">
             <div className="flex -space-x-2">
               {[1,2,3,4].map(i => (
-                <img key={i} src={`https://picsum.photos/40/40?random=${i}`} className="w-8 h-8 rounded-full border-2 border-white" alt="Equipe" />
+                <img key={i} src={`./avatar_${i}.jpg`} className="w-8 h-8 rounded-full border-2 border-white" alt="Equipe" />
               ))}
             </div>
             <span>Atendimento integrado e humanizado em Cotia</span>
