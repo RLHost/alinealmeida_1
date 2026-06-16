@@ -102,76 +102,165 @@ const Navbar = () => {
   );
 };
 
-const Hero = () => (
-  <header className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-    {/* Animated Background Elements */}
-    <div className="absolute top-20 right-10 w-64 h-64 bg-emerald-100 rounded-full blur-3xl opacity-60 soft-float"></div>
-    <div className="absolute bottom-10 left-10 w-80 h-80 bg-sky-100 rounded-full blur-3xl opacity-60 soft-float" style={{ animationDelay: '2s' }}></div>
+const Hero = () => {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
 
-    <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-      <div className="space-y-8 animate-fade-in">
-        <div className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full font-bold text-sm tracking-wide">
-          DESENVOLVIMENTO COGNITIVO, EMOCIONAL E SOCIAL
-        </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-emerald-900 leading-tight">
-          Evolução, Autonomia e <span className="text-emerald-500">Qualidade de Vida</span> para Todas as <span className="text-sky-500">Idades</span>
-        </h1>
-        <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
-          O <strong>Espaço de Aprendizagem & Desenvolvimento Humano</strong> é um ambiente multidisciplinar preparado para acolher, estimular e desenvolver crianças, adolescentes, adultos, idosos e famílias.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <a 
-            href="https://wa.me/5511949494368" 
-            target="_blank"
-            className="flex items-center justify-center gap-2 bg-emerald-500 text-white px-8 py-4 rounded-3xl font-bold text-lg hover:bg-emerald-600 transition shadow-2xl shadow-emerald-200 group"
-          >
-            Quero Agendar uma Avaliação
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
-          </a>
-          <a 
-            href="#servicos" 
-            className="flex items-center justify-center gap-2 border-2 border-emerald-200 text-emerald-800 px-8 py-4 rounded-3xl font-bold text-lg hover:bg-emerald-50 transition"
-          >
-            Ver Especialidades
-          </a>
-        </div>
-        <div className="flex items-center gap-4 text-sm text-gray-500">
-          <div className="flex -space-x-2">
-            {[1,2,3,4].map(i => (
-              <img key={i} src={`https://picsum.photos/40/40?random=${i}`} className="w-8 h-8 rounded-full border-2 border-white" alt="Equipe" />
-            ))}
+  const card1Options = [
+    { label: "Autismo & Transtornos", desc: "Neurodesenvolvimento", icon: "Puzzle" },
+    { label: "Psicopedagogia", desc: "Dificuldades de Aprendizagem", icon: "Brain" },
+    { label: "Neuropsicologia", desc: "Bebês a Idosos", icon: "Activity" }
+  ];
+
+  const card2Options = [
+    { label: "Acolhimento Humano", desc: "Olhar Individualizado", icon: "Heart" },
+    { label: "Autonomia", desc: "Qualidade de Vida", icon: "Sparkles" },
+    { label: "Evolução Contínua", desc: "Terapias Integradas", icon: "CheckCircle" }
+  ];
+
+  const card3Options = [
+    { label: "Fisioterapia", desc: "Saúde & Movimento", icon: "Activity" },
+    { label: "Psicologia", desc: "Saúde Emocional", icon: "Smile" },
+    { label: "Habilidades Sociais", desc: "Desenvolvimento Coletivo", icon: "Users" }
+  ];
+
+  const card4Options = [
+    { label: "Reforço Escolar", desc: "Apoio Pedagógico", icon: "BookOpen" },
+    { label: "Arte & Pintura", desc: "Expressão Criativa", icon: "Palette" },
+    { label: "Musicalização", desc: "Sensório-Motor", icon: "Music" }
+  ];
+
+  const iconMap: Record<string, React.ComponentType<any>> = {
+    Heart,
+    Brain,
+    BookOpen,
+    Smile,
+    Star,
+    CheckCircle,
+    Puzzle,
+    Music,
+    Palette,
+    Sparkles,
+    Activity,
+    Users
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % 3);
+        setVisible(true);
+      }, 500);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const c1 = card1Options[index];
+  const c2 = card2Options[index];
+  const c3 = card3Options[index];
+  const c4 = card4Options[index];
+
+  const Icon1 = iconMap[c1.icon] || Smile;
+  const Icon2 = iconMap[c2.icon] || Smile;
+  const Icon3 = iconMap[c3.icon] || Smile;
+  const Icon4 = iconMap[c4.icon] || Smile;
+
+  return (
+    <header className="relative min-h-screen flex items-center pt-24 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute top-20 right-10 w-64 h-64 bg-emerald-100 rounded-full blur-3xl opacity-60 soft-float"></div>
+      <div className="absolute bottom-10 left-10 w-80 h-80 bg-sky-100 rounded-full blur-3xl opacity-60 soft-float" style={{ animationDelay: '2s' }}></div>
+
+      <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+        <div className="space-y-8 animate-fade-in">
+          <div className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full font-bold text-sm tracking-wide">
+            DESENVOLVIMENTO COGNITIVO, EMOCIONAL E SOCIAL
           </div>
-          <span>Atendimento integrado e humanizado em Cotia</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-emerald-900 leading-tight">
+            Evolução, Autonomia e <span className="text-emerald-500">Qualidade de Vida</span> para Todas as <span className="text-sky-500">Idades</span>
+          </h1>
+          <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
+            O <strong>Espaço de Aprendizagem & Desenvolvimento Humano</strong> é um ambiente multidisciplinar preparado para acolher, estimular e desenvolver crianças, adolescentes, adultos, idosos e famílias.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a 
+              href="https://wa.me/5511949494368" 
+              target="_blank"
+              className="flex items-center justify-center gap-2 bg-emerald-500 text-white px-8 py-4 rounded-3xl font-bold text-lg hover:bg-emerald-600 transition shadow-2xl shadow-emerald-200 group"
+            >
+              Quero Agendar uma Avaliação
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
+            </a>
+            <a 
+              href="#servicos" 
+              className="flex items-center justify-center gap-2 border-2 border-emerald-200 text-emerald-800 px-8 py-4 rounded-3xl font-bold text-lg hover:bg-emerald-50 transition"
+            >
+              Ver Especialidades
+            </a>
+          </div>
+          <div className="flex items-center gap-4 text-sm text-gray-500">
+            <div className="flex -space-x-2">
+              {[1,2,3,4].map(i => (
+                <img key={i} src={`https://picsum.photos/40/40?random=${i}`} className="w-8 h-8 rounded-full border-2 border-white" alt="Equipe" />
+              ))}
+            </div>
+            <span>Atendimento integrado e humanizado em Cotia</span>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
+            <img 
+              src="./hero_autism.png" 
+              alt="Atendimento acolhedor e multidisciplinar" 
+              className="w-full h-80 md:h-[500px] object-cover"
+            />
+          </div>
+          {/* Floating cards */}
+          <div className={`absolute -top-6 -left-6 bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`}>
+            <div className="bg-sky-100 p-2 rounded-2xl text-sky-600">
+              <Icon1 className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="font-bold text-sm text-gray-800">{c1.label}</p>
+              <p className="text-xs text-gray-500">{c1.desc}</p>
+            </div>
+          </div>
+
+          <div className={`absolute top-10 -right-6 bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`} style={{ transitionDelay: '100ms' }}>
+            <div className="bg-emerald-100 p-2 rounded-2xl text-emerald-600">
+              <Icon2 className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="font-bold text-sm text-gray-800">{c2.label}</p>
+              <p className="text-xs text-gray-500">{c2.desc}</p>
+            </div>
+          </div>
+
+          <div className={`absolute -bottom-6 -left-6 bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`} style={{ transitionDelay: '200ms' }}>
+            <div className="bg-amber-100 p-2 rounded-2xl text-amber-600">
+              <Icon3 className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="font-bold text-sm text-gray-800">{c3.label}</p>
+              <p className="text-xs text-gray-500">{c3.desc}</p>
+            </div>
+          </div>
+
+          <div className={`absolute bottom-1/3 -right-8 bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`} style={{ transitionDelay: '300ms' }}>
+            <div className="bg-rose-100 p-2 rounded-2xl text-rose-600">
+              <Icon4 className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="font-bold text-sm text-gray-800">{c4.label}</p>
+              <p className="text-xs text-gray-500">{c4.desc}</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="relative">
-        <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
-          <img 
-            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" 
-            alt="Atendimento acolhedor e multidisciplinar" 
-            className="w-full h-80 md:h-[500px] object-cover"
-          />
-        </div>
-        {/* Floating cards */}
-        <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl z-20 flex items-center gap-4 animate-bounce-slow">
-          <div className="bg-sky-100 p-3 rounded-2xl text-sky-600">
-            <Smile className="w-8 h-8" />
-          </div>
-          <div>
-            <p className="font-bold text-gray-800">Acolhimento</p>
-            <p className="text-xs text-gray-500">Olhar Humano e Individualizado</p>
-          </div>
-        </div>
-        <div className="absolute top-10 -right-6 bg-white p-4 rounded-3xl shadow-xl z-20 flex items-center gap-3 animate-pulse">
-          <div className="bg-amber-100 p-2 rounded-xl text-amber-600">
-            <Star className="w-6 h-6 fill-current" />
-          </div>
-          <p className="font-bold text-sm text-gray-800">Multidisciplinar</p>
-        </div>
-      </div>
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 const DifferentialsSection = () => (
   <section className="py-24 bg-sky-50" id="diferenciais">
