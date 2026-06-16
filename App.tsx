@@ -398,7 +398,7 @@ const ServicesSection = () => {
             top: targetY,
             behavior: 'smooth'
           });
-        }, 150); // Snappy 150ms delay to scroll mid-transition
+        }, 320); // 320ms delay is perfect to wait for the 300ms transition to stabilize
       }
     }
   };
