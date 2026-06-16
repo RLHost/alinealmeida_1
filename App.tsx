@@ -382,6 +382,27 @@ const ServicesSection = () => {
 
   const activeCategory = activeTab >= 0 ? categories[activeTab] : categories[0];
 
+  const handleTabClick = (idx: number, e: React.MouseEvent<HTMLButtonElement>) => {
+    const isOpen = activeTab === idx;
+    setActiveTab(isOpen ? -1 : idx);
+
+    if (!isOpen) {
+      const button = e.currentTarget;
+      const container = button.parentElement;
+      if (container) {
+        setTimeout(() => {
+          const rect = container.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const targetY = rect.top + scrollTop - 100; // 100px offset for fixed navbar
+          window.scrollTo({
+            top: targetY,
+            behavior: 'smooth'
+          });
+        }, 150); // Snappy 150ms delay to scroll mid-transition
+      }
+    }
+  };
+
   return (
     <section id="servicos" className="py-24 bg-white">
       <div className="container mx-auto px-6">
@@ -404,7 +425,7 @@ const ServicesSection = () => {
                 }`}
               >
                 <button
-                  onClick={() => setActiveTab(isOpen ? -1 : idx)}
+                  onClick={(e) => handleTabClick(idx, e)}
                   className="w-full flex items-center justify-between p-6 font-bold text-left transition-colors text-emerald-900"
                 >
                   <div className="flex items-center gap-4">
