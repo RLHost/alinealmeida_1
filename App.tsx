@@ -635,7 +635,7 @@ const AboutSection = () => (
         <p className="text-lg text-gray-700 leading-relaxed">
           Com ampla formação clínica e institucional, conduzo o <strong>Espaço de Aprendizagem & Desenvolvimento Humano</strong> para acolher não apenas crianças, mas pessoas de todas as idades (incluindo adultos e idosos) que buscam desenvolvimento, reabilitação cognitiva, autonomia e qualidade de vida.
         </p>
-        <div className="grid grid-cols-2 gap-6 pt-6">
+        <div className="grid grid-cols-1 min-[500px]:grid-cols-2 gap-6 pt-6">
           <div className="bg-white p-6 rounded-3xl shadow-sm border border-emerald-100">
             <p className="text-emerald-600 font-bold text-lg mb-1">Olhar Individualizado</p>
             <p className="text-gray-500 text-sm">Avaliação e terapias personalizadas</p>
