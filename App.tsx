@@ -583,7 +583,7 @@ const HowItWorksSection = () => (
         <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-6">Como Funciona o Acompanhamento</h2>
         <p className="text-lg text-gray-600">Um processo estruturado de forma ética e profissional para garantir a melhor evolução de cada paciente.</p>
       </div>
-      <div className="grid md:grid-cols-4 gap-8 relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
         {[
           { step: "01", title: "Agendamento", desc: "Entre em contato via WhatsApp para alinhar o melhor horário e tirar dúvidas preliminares." },
           { step: "02", title: "Avaliação Inicial", desc: "Entendimento aprofundado do histórico cognitivo, emocional e do desenvolvimento." },
