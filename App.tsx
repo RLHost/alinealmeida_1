@@ -406,7 +406,7 @@ const AboutSection = () => (
 const Footer = () => (
   <footer id="contato" className="bg-emerald-900 text-white pt-24 pb-12">
     <div className="container mx-auto px-6">
-      <div className="grid grid-cols-1 md:grid-cols-[11rem_1fr_1fr_1fr] gap-12 mb-20 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[11rem_1fr_1fr_1fr_4rem] gap-12 mb-20 items-start">
         {/* Coluna 1: Logo */}
         <div className="flex justify-start w-full">
           <img src="./espaco_adh.svg" className="w-full object-contain" alt="Logo" />
@@ -435,7 +435,7 @@ const Footer = () => (
           </ul>
         </div>
 
-        {/* Coluna 4: Horário e link sociais */}
+        {/* Coluna 4: Horários */}
         <div className="space-y-6">
           <div>
             <h4 className="font-bold text-xl mb-4">Horários</h4>
@@ -447,14 +447,16 @@ const Footer = () => (
               </div>
             </div>
           </div>
-          <div className="flex gap-4">
-            <a href="https://www.instagram.com/espaco_de_aprendizagem_e_desen" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition">
-              <Instagram className="w-6 h-6" />
-            </a>
-            <a href="https://maps.app.goo.gl/7TCULuwgKj2kBXZu8" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition">
-              <MapPin className="w-6 h-6" />
-            </a>
-          </div>
+        </div>
+
+        {/* Coluna 5: Redes Sociais */}
+        <div className="flex flex-col gap-4 items-start md:items-center">
+          <a href="https://www.instagram.com/espaco_de_aprendizagem_e_desen" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition" title="Instagram">
+            <Instagram className="w-6 h-6" />
+          </a>
+          <a href="https://maps.app.goo.gl/7TCULuwgKj2kBXZu8" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition" title="Como chegar (Google Maps)">
+            <MapPin className="w-6 h-6" />
+          </a>
         </div>
       </div>
       <div className="border-t border-emerald-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-emerald-300 gap-4 text-center">
