@@ -19,7 +19,9 @@ import {
   Users,
   Sparkles,
   Activity,
-  ChevronDown
+  ChevronDown,
+  Menu,
+  X
 } from 'lucide-react';
 
 // ScrollReveal component for triggering transition effects on scroll
@@ -63,9 +65,9 @@ const ScrollReveal = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-// Sub-components defined outside for performance
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -74,16 +76,27 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#" className="flex items-center">
           <img 
             src="./espaco_adh.svg" 
             alt="Espaço de Aprendizagem & Desenvolvimento Humano" 
-            className={`transition-all duration-300 w-auto object-contain ${isScrolled ? 'h-16' : 'h-24'}`}
+            className={`transition-all duration-300 w-auto object-contain ${isScrolled ? 'h-10 md:h-16' : 'h-14 md:h-24'}`}
           />
         </a>
-        <div className="flex gap-4 md:gap-8 items-center">
+
+        {/* Botão Hamburger (Mobile) */}
+        <button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="lg:hidden text-emerald-900 focus:outline-none p-2 hover:bg-emerald-50 rounded-full transition"
+          aria-label="Alternar Menu"
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Menu Desktop */}
+        <div className="hidden lg:flex gap-8 items-center">
           <a href="#diferenciais" className="text-emerald-900 font-medium hover:text-emerald-600 transition relative group py-2">
             Diferenciais
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
@@ -97,6 +110,40 @@ const Navbar = () => {
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a href="#contato" className="bg-emerald-500 text-white px-5 py-2 rounded-full font-bold hover:bg-emerald-600 transition shadow-lg shadow-emerald-200">Agendar</a>
+        </div>
+      </div>
+
+      {/* Menu Dropdown Mobile */}
+      <div className={`lg:hidden transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-72 opacity-100 mt-2 border-t border-emerald-50 bg-white/95 backdrop-blur-md' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+        <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
+          <a 
+            href="#diferenciais" 
+            onClick={() => setIsMenuOpen(false)}
+            className="text-emerald-900 font-medium hover:text-emerald-600 transition py-2 border-b border-emerald-50/50"
+          >
+            Diferenciais
+          </a>
+          <a 
+            href="#servicos" 
+            onClick={() => setIsMenuOpen(false)}
+            className="text-emerald-900 font-medium hover:text-emerald-600 transition py-2 border-b border-emerald-50/50"
+          >
+            Serviços
+          </a>
+          <a 
+            href="#sobre" 
+            onClick={() => setIsMenuOpen(false)}
+            className="text-emerald-900 font-medium hover:text-emerald-600 transition py-2 border-b border-emerald-50/50"
+          >
+            Sobre
+          </a>
+          <a 
+            href="#contato" 
+            onClick={() => setIsMenuOpen(false)}
+            className="bg-emerald-500 text-white px-5 py-2 rounded-full font-bold hover:bg-emerald-600 transition text-center shadow-lg shadow-emerald-200"
+          >
+            Agendar
+          </a>
         </div>
       </div>
     </nav>
