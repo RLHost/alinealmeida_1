@@ -590,10 +590,14 @@ const HowItWorksSection = () => (
           { step: "03", title: "Plano Personalizado", desc: "Construção de uma rota de intervenção integrada adaptada às necessidades específicas." },
           { step: "04", title: "Acompanhamento Contínuo", desc: "Sessões periódicas, orientação familiar e contato com outros profissionais se necessário." },
         ].map((item, idx) => (
-          <div key={idx} className="bg-white p-8 rounded-3xl shadow-md border border-sky-100 relative group hover:border-emerald-300 transition duration-300">
-            <span className="text-5xl font-black text-sky-100 group-hover:text-emerald-100 transition absolute top-4 right-6">{item.step}</span>
-            <h3 className="text-xl font-bold text-emerald-900 mb-3 relative z-10">{item.title}</h3>
-            <p className="text-gray-500 leading-relaxed text-sm">{item.desc}</p>
+          <div key={idx} className="bg-white p-8 rounded-3xl shadow-md border border-sky-100 group hover:border-emerald-300 transition-all hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div className="flex justify-between items-start gap-4 mb-4">
+                <h3 className="text-xl font-bold text-emerald-900">{item.title}</h3>
+                <span className="text-3xl font-black text-sky-200 group-hover:text-emerald-300 transition-colors duration-300 shrink-0">{item.step}</span>
+              </div>
+              <p className="text-gray-500 leading-relaxed text-sm">{item.desc}</p>
+            </div>
           </div>
         ))}
       </div>
