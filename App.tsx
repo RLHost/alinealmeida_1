@@ -409,7 +409,7 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 items-start">
         {/* Coluna 1: Logo */}
         <div className="flex justify-start">
-          <img src="./espaco_adh.svg" className="w-[80%] max-w-[180px] object-contain" alt="Logo" />
+          <img src="./espaco_adh.svg" className="w-auto h-16 object-contain" alt="Logo" />
         </div>
 
         {/* Coluna 2: Texto e descritivo */}
