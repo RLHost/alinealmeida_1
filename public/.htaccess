@@ -1,0 +1,67 @@
+# ----------------------------------------------------------------------
+# Apache Security and Performance Configuration (.htaccess)
+# ----------------------------------------------------------------------
+
+# 1. Prevent Directory Listings
+Options -Indexes
+
+# 2. SPA Friendly Routing (Redirect non-existent files/directories to index.html)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Protect critical system files from being accessed
+  RewriteRule ^\.(git|github|env) - [F,L]
+  
+  # Fallback all other requests to index.html if not a physical file or directory
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ index.html [L]
+</IfModule>
+
+# 3. Security Headers
+<IfModule mod_headers.c>
+  # Avoid Clickjacking by restricting framing
+  Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Prevent MIME-type sniffing
+  Header set X-Content-Type-Options "nosniff"
+  
+  # Enable XSS protection filter in older browsers
+  Header set X-XSS-Protection "1; mode=block"
+  
+  # Control referrer information sent with requests
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Content Security Policy (CSP)
+  # Allows assets, API connections to Google APIs, fonts, and images from unsplash/picsum
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://picsum.photos; connect-src 'self' https://generativelanguage.googleapis.com https://api.github.com;"
+</IfModule>
+
+# 4. Gzip/Deflate Compression (Performance & Speed)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json image/svg+xml
+  
+  # Mark proxies to cache compressed and uncompressed files separately
+  Header append Vary User-Agent
+</IfModule>
+
+# 5. Caching Control (Performance & Speed)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  
+  # Do not cache HTML files to ensure instant updates
+  ExpiresByType text/html "access plus 0 seconds"
+  
+  # Cache static assets for a long duration (1 year)
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/x-javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+</IfModule>

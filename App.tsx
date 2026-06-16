@@ -26,15 +26,16 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <div className="bg-emerald-400 p-2 rounded-full">
-            <Brain className="text-white w-6 h-6" />
-          </div>
-          <span className="font-bold text-xl text-emerald-800 hidden md:block">Espaço de Aprendizagem</span>
-        </div>
-        <div className="flex gap-4 md:gap-8">
+        <a href="#" className="flex items-center">
+          <img 
+            src="./espaco_adh.svg" 
+            alt="Espaço de Aprendizagem - Aline Almeida" 
+            className={`transition-all duration-300 w-auto object-contain ${isScrolled ? 'h-14' : 'h-20'}`}
+          />
+        </a>
+        <div className="flex gap-4 md:gap-8 items-center">
           <a href="#solucoes" className="text-emerald-900 font-medium hover:text-emerald-600 transition">Serviços</a>
           <a href="#sobre" className="text-emerald-900 font-medium hover:text-emerald-600 transition">Sobre</a>
           <a href="#contato" className="bg-emerald-500 text-white px-5 py-2 rounded-full font-bold hover:bg-emerald-600 transition shadow-lg shadow-emerald-200">Agendar</a>

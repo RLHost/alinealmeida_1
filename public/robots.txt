@@ -1,0 +1,32 @@
+# robots.txt for Espaço de Aprendizagem - Aline Almeida
+# Optimized for Googlebot, Bingbot, Yahoo, DuckDuckGo, and LLM Web Crawlers
+
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /dist/
+
+# LLM & AI Agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Sitemap Location
+Sitemap: https://espacodeaprendizagem.com.br/sitemap.xml

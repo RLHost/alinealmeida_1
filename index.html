@@ -1,41 +1,150 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Espaço de Aprendizagem | Neuropsicopedagogia em Cotia</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- SEO Meta Tags -->
+    <title>Espaço de Aprendizagem | Neuropsicopedagogia Clínica em Cotia | Aline Almeida</title>
+    <meta name="description" content="Clínica de neuropsicopedagogia em Cotia liderada por Aline Almeida. Especializada em TDAH, dificuldades de foco, alfabetização e desenvolvimento cognitivo infantil." />
+    <meta name="keywords" content="neuropsicopedagogia Cotia, Aline Almeida, TDAH Cotia, dificuldade de aprendizagem, reforço escolar, desenvolvimento cognitivo, psicologia infantil Cotia, psicopedagoga Cotia" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://espacodeaprendizagem.com.br/" />
+    <meta name="author" content="Aline Almeida" />
+
+    <!-- GEO Tagging (Geolocalização) -->
+    <meta name="geo.region" content="BR-SP" />
+    <meta name="geo.placename" content="Cotia" />
+    <meta name="geo.position" content="-23.6019;-46.9205" />
+    <meta name="ICBM" content="-23.6019, -46.9205" />
+
+    <!-- Open Graph / Facebook (SEO Social) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://espacodeaprendizagem.com.br/" />
+    <meta property="og:title" content="Espaço de Aprendizagem | Neuropsicopedagogia Clínica em Cotia" />
+    <meta property="og:description" content="Clínica de neuropsicopedagogia em Cotia liderada por Aline Almeida. Especializada em TDAH, dificuldades de foco, alfabetização e desenvolvimento cognitivo infantil." />
+    <meta property="og:image" content="./espaco_adh.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter Card (SEO Social) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://espacodeaprendizagem.com.br/" />
+    <meta name="twitter:title" content="Espaço de Aprendizagem | Neuropsicopedagogia Clínica em Cotia" />
+    <meta name="twitter:description" content="Clínica de neuropsicopedagogia em Cotia liderada por Aline Almeida. Especializada em TDAH, dificuldades de foco, alfabetização e desenvolvimento cognitivo infantil." />
+    <meta name="twitter:image" content="./espaco_adh.svg" />
+
+    <!-- Favicon e Ícones do App (espaco_adh_logo.svg) -->
+    <link rel="icon" type="image/svg+xml" href="./espaco_adh_logo.svg" />
+    <link rel="apple-touch-icon" href="./espaco_adh_logo.svg" />
+    <link rel="shortcut icon" href="./espaco_adh_logo.svg" />
+
+    <!-- Google Fonts Preconnect & Font Import -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Quicksand', sans-serif;
-      }
-      .soft-float {
-        animation: float 6s ease-in-out infinite;
-      }
-      @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-        100% { transform: translateY(0px); }
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.564.0",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+
+    <!-- Dados Estruturados (JSON-LD) para SEO/LLM -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Espaço de Aprendizagem - Aline Almeida",
+      "image": [
+        "https://espacodeaprendizagem.com.br/espaco_adh.svg",
+        "https://espacodeaprendizagem.com.br/espaco_adh_logo.svg"
+      ],
+      "description": "Clínica de neuropsicopedagogia em Cotia. Especialista em TDAH, dificuldades de foco, alfabetização e desenvolvimento infantil.",
+      "@id": "https://espacodeaprendizagem.com.br/#clinic",
+      "url": "https://espacodeaprendizagem.com.br/",
+      "telephone": "+55-11-94949-4368",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Padre Luiz Martini, 75, Vila Sao Joaquim",
+        "addressLocality": "Cotia",
+        "addressRegion": "SP",
+        "postalCode": "06700-467",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.6019,
+        "longitude": -46.9205
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/espaco_de_aprendizagem_e_desen?igsh=ZzUza2s1dGJob2w2"
+      ]
+    }
+    </script>
+  </head>
   <body>
-    <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <div id="root">
+      <!-- Conteúdo Semântico Estático para Indexação por Googlebot e IAs/LLMs sem JavaScript -->
+      <header>
+        <img src="./espaco_adh.svg" alt="Espaço de Aprendizagem - Aline Almeida" />
+        <nav>
+          <ul>
+            <li><a href="#solucoes">Serviços</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+        <h1>Transforme a Dificuldade em Descoberta</h1>
+        <p>Neuropsicopedagogia Clínica em Cotia. Seu filho merece aprender com leveza. No Espaço de Aprendizagem, utilizamos a ciência e o afeto para destravar o potencial cognitivo e emocional de cada criança.</p>
+        <p>Especialista em TDAH, foco, atenção e desenvolvimento cognitivo com mais de 200 famílias transformadas em Cotia.</p>
+      </header>
+
+      <main>
+        <section id="pain">
+          <h2>Dificuldades no aprendizado escolar?</h2>
+          <ul>
+            <li><strong>Dificuldade de Foco:</strong> Perda de atenção em tarefas simples e lições de casa demoradas.</li>
+            <li><strong>Lentidão na Leitura:</strong> Alfabetização difícil e cheia de resistência.</li>
+            <li><strong>Desmotivação Escolar:</strong> Choro para ir à escola, baixa autoestima escolar.</li>
+          </ul>
+        </section>
+
+        <section id="solucoes">
+          <h2>Nossos Serviços de Neuropsicopedagogia</h2>
+          <ul>
+            <li><strong>Avaliação Neuropsicopedagógica:</strong> Análise de como o cérebro processa informações e identificação de barreiras de aprendizado.</li>
+            <li><strong>Intervenção Individualizada:</strong> Plano terapêutico focado em leitura, escrita e raciocínio lógico.</li>
+            <li><strong>Apoio às Funções Executivas:</strong> Organização, memória de trabalho e controle de impulsos.</li>
+            <li><strong>Parceria com a Escola:</strong> Alinhamento com professores para suporte acadêmico integral.</li>
+          </ul>
+        </section>
+
+        <section id="sobre">
+          <h2>Aline Almeida - Neuropsicopedagoga Clínica</h2>
+          <p>Olá, eu sou a Aline Almeida, pós-graduada em Neuropsicopedagogia e fundadora do Espaço de Aprendizagem em Cotia. Com mais de 500 avaliações realizadas, ajudo crianças e adolescentes a superarem desafios escolares e recuperarem o prazer de aprender, focando na saúde cognitiva e emocional.</p>
+        </section>
+      </main>
+
+      <footer>
+        <section id="contato">
+          <h2>Contato e Localização</h2>
+          <p><strong>Endereço:</strong> R. Padre Luiz Martini, 75 - Vila Sao Joaquim, Cotia - SP, 06700-467</p>
+          <p><strong>Telefone:</strong> (11) 94949-4368</p>
+          <p><strong>Horário de Funcionamento:</strong> Segunda a Sexta, das 08:00 às 18:00</p>
+          <p><strong>Redes Sociais:</strong> Instagram @espaco_de_aprendizagem_e_desen</p>
+        </section>
+        <p>&copy; 2024 Espaço de Aprendizagem - Aline Almeida. Todos os direitos reservados.</p>
+      </footer>
+    </div>
+    
+    <!-- Script Principal React -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
