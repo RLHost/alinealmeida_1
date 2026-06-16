@@ -1,22 +1,62 @@
-# Espaço de Aprendizagem - Aline Almeida
+# Espaço de Aprendizagem & Desenvolvimento Humano
 
-Espaço de Aprendizagem é uma clínica especializada em Neuropsicopedagogia Clínica e desenvolvimento cognitivo e infantil localizada em Cotia - SP. Fundada e liderada por Aline Almeida, especialista pós-graduada na área.
+Espaço de Aprendizagem & Desenvolvimento Humano é um ambiente multidisciplinar dedicado ao desenvolvimento cognitivo, emocional e social de crianças, adolescentes, adultos, idosos e famílias. Nosso trabalho integra educação, terapias e acolhimento humanizado para promover autonomia, evolução e qualidade de vida.
 
 ## Informações Gerais
-- **Especialidade**: Neuropsicopedagogia Clínica, TDAH (Transtorno do Déficit de Atenção com Hiperatividade), Dificuldade de Foco, Alfabetização, Desenvolvimento Cognitivo e Emocional.
-- **Responsável Técnica**: Aline Almeida (Neuropsicopedagoga Clínica).
-- **Proposta de Valor**: Integrar afeto e ciência para destravar o potencial cognitivo de crianças e adolescentes com dificuldades de aprendizagem escolar.
-- **Público-alvo**: Crianças, adolescentes e famílias que enfrentam barreiras cognitivas, TDAH, lentidão na leitura/escrita e desmotivação escolar.
+- **Especialidades**: Aprendizagem e Desenvolvimento, Autismo e Neurodesenvolvimento, Neuropsicologia, Arte e Musicalização, Saúde Emocional e Apoio Psicossocial.
+- **Responsável Técnica**: Aline Almeida (Pedagoga, Psicopedagoga e Neuropsicopedagoga Clínica e Institucional).
+- **Proposta de Valor**: Atendimento humanizado e individualizado sob uma perspectiva multidisciplinar e acolhedora, visando à evolução integral da infância à terceira idade.
+- **Público-alvo**: Bebês, crianças, adolescentes, adultos, idosos e famílias.
 
-## Serviços Oferecidos
-1. **Avaliação Neuropsicopedagógica**: Processamento de informações e identificação de barreiras cognitivas.
-2. **Intervenção Individualizada**: Planos terapêuticos customizados focando em dificuldades de leitura, escrita e raciocínio lógico.
-3. **Apoio às Funções Executivas**: Desenvolvimento de memória de trabalho, organização e controle de impulsos.
-4. **Parceria com Escolas**: Alinhamento de abordagens pedagógicas 360° com os professores e orientadores.
+## Diferenciais do Espaço
+1. **Atendimento Multidisciplinar**: Integração de múltiplos olhares terapêuticos e educacionais.
+2. **Ambiente Acolhedor e Familiar**: Espaço desenhado para acolher e gerar segurança emocional.
+3. **Plano Individualizado**: Roteiro de desenvolvimento adaptado à singularidade de cada pessoa.
+4. **Desenvolvimento Integral**: Amadurecimento equilibrado de esferas cognitivas, sociais e afetivas.
+5. **Equipe Especializada**: Profissionais experientes sob orientação e coordenação técnica.
+
+## Divisão de Serviços
+
+### 1. Aprendizagem e Desenvolvimento
+- Psicopedagogia clínica e institucional
+- Neuropsicopedagogia clínica e institucional
+- Reforço escolar especializado
+- Tratamento de dificuldades de aprendizagem
+- Estimulação cognitiva global
+
+### 2. Autismo e Neurodesenvolvimento
+- Psicologia para o autismo
+- Fisioterapia para o autismo
+- Treino de habilidades sociais
+- Desenvolvimento e integração sensorial
+
+### 3. Neuropsicologia
+- Atendimento especializado a Bebês, Crianças, Adolescentes, Adultos e Idosos
+- Avaliação e reabilitação cognitiva completa
+
+### 4. Arte e Musicalização
+- Musicalização
+- Arte, desenho e pintura
+- Oficinas de expressão criativa
+
+### 5. Saúde Emocional
+- Psicanálise
+- Psicoterapia individual
+- Orientação e suporte familiar
+
+### 6. Apoio Psicossocial
+- Atendimento especializado em situações de violência doméstica
+- Escuta qualificada e orientação social
+
+## Como Funciona o Acompanhamento
+1. **Agendamento**: Primeiro contato para alinhamento de horários.
+2. **Avaliação Inicial**: Análise detalhada do histórico de queixas e do desenvolvimento do paciente.
+3. **Plano Personalizado**: Criação de intervenção terapêutica integrada de acordo com as necessidades identificadas.
+4. **Acompanhamento Contínuo**: Sessões regulares, suporte familiar, reuniões escolares e avaliações periódicas.
 
 ## Localização e Contatos
 - **Endereço**: R. Padre Luiz Martini, 75 - Vila Sao Joaquim, Cotia - SP, CEP 06700-467
 - **Coordenadas Geográficas**: Latitude -23.6019, Longitude -46.9205
 - **Telefone / WhatsApp**: +55 (11) 94949-4368
-- **Instagram**: [@espaco_de_aprendizagem_e_desen](https://www.instagram.com/espaco_de_aprendizagem_e_desen?igsh=ZzUza2s1dGJob2w2)
-- **Horário de Funcionamento**: Segunda a Sexta, das 08h às 18h.
+- **Instagram**: [@espaco_de_aprendizagem_e_desen](https://www.instagram.com/espaco_de_aprendizagem_e_desen)
+- **Horário de Funcionamento**: Segunda a Sábado com horários agendados.
