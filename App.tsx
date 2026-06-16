@@ -563,7 +563,7 @@ const Footer = () => (
         </div>
 
         {/* Coluna 5: Redes Sociais */}
-        <div className="flex flex-col gap-4 items-start md:items-center">
+        <div className="flex flex-row md:flex-col gap-4 items-center justify-start md:justify-center">
           <a href="https://www.instagram.com/espaco_de_aprendizagem_e_desen" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition" title="Instagram">
             <Instagram className="w-6 h-6" />
           </a>
@@ -574,7 +574,7 @@ const Footer = () => (
       </div>
       <div className="border-t border-emerald-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-emerald-300 gap-4 text-center">
         <p>&copy; 2024 Espaço de Aprendizagem & Desenvolvimento Humano. Todos os direitos reservados.</p>
-        <p>Desenvolvido com ❤️ para transformar vidas.</p>
+        <p>Desenvolvido pela <a href="https://relvidigital.com.br" target="_blank" className="underline hover:text-white transition">Relvi Digital</a> com ❤️ para transformar vidas.</p>
       </div>
     </div>
   </footer>
