@@ -722,6 +722,18 @@ const FloatingWhatsApp = () => (
 );
 
 export default function App() {
+  useEffect(() => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.opacity = '0';
+      preloader.style.visibility = 'hidden';
+      const timeout = setTimeout(() => {
+        preloader.remove();
+      }, 300);
+      return () => clearTimeout(timeout);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-white selection:bg-emerald-200 selection:text-emerald-900">
       <Navbar />

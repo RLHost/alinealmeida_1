@@ -97,9 +97,51 @@
       ]
     }
     </script>
+  <style>
+    /* Preloader animado */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .preloader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid #e2e8f0;
+      border-top-color: #10b981;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Esconde o conteúdo estático de SEO apenas quando o JavaScript está ativado, evitando FOUC */
+    html.js #root > header,
+    html.js #root > main,
+    html.js #root > footer {
+      display: none;
+    }
+  </style>
+  <script>
+    document.documentElement.className += ' js';
+  </script>
 </head>
 
 <body>
+  <!-- Preloader de Carregamento Inicial -->
+  <div id="preloader">
+    <div class="preloader-spinner"></div>
+  </div>
+
   <div id="root">
     <!-- Conteúdo Semântico Estático para Indexação por Googlebot e IAs/LLMs sem JavaScript -->
     <header>
