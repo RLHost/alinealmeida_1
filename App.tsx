@@ -447,16 +447,13 @@ const Footer = () => (
               </div>
             </div>
           </div>
-          <div className="space-y-3">
-            <h5 className="font-bold text-sm text-emerald-300 uppercase tracking-wider">Redes Sociais</h5>
-            <div className="flex gap-4">
-              <a href="https://www.instagram.com/espaco_de_aprendizagem_e_desen" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition">
-                <Instagram className="w-6 h-6" />
-              </a>
-              <a href="https://maps.app.goo.gl/7TCULuwgKj2kBXZu8" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition">
-                <MapPin className="w-6 h-6" />
-              </a>
-            </div>
+          <div className="flex gap-4">
+            <a href="https://www.instagram.com/espaco_de_aprendizagem_e_desen" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition">
+              <Instagram className="w-6 h-6" />
+            </a>
+            <a href="https://maps.app.goo.gl/7TCULuwgKj2kBXZu8" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition">
+              <MapPin className="w-6 h-6" />
+            </a>
           </div>
         </div>
       </div>
