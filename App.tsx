@@ -341,7 +341,7 @@ const DifferentialsSection = () => (
         <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-6">Diferenciais do Nosso Espaço</h2>
         <p className="text-lg text-gray-600">Um ambiente preparado para acolher, estimular e desenvolver, promovendo segurança emocional, aprendizado e bem-estar.</p>
       </div>
-      <div className="grid md:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {[
           { icon: <Users className="w-6 h-6" />, title: "Atendimento Multidisciplinar", desc: "Integração de diferentes especialidades terapêuticas e educacionais." },
           { icon: <Heart className="w-6 h-6" />, title: "Ambiente Acolhedor", desc: "Estrutura familiar pensada para o aconchego e segurança emocional." },
