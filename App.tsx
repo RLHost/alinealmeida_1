@@ -179,7 +179,7 @@ const Hero = () => {
   const Icon4 = iconMap[c4.icon] || Smile;
 
   return (
-    <header className="relative min-h-screen flex items-center pt-24 overflow-hidden">
+    <header className="relative min-h-[120vh] md:min-h-screen flex items-center pt-28 pb-20 md:py-0 overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-emerald-100 rounded-full blur-3xl opacity-60 soft-float"></div>
       <div className="absolute bottom-10 left-10 w-80 h-80 bg-sky-100 rounded-full blur-3xl opacity-60 soft-float" style={{ animationDelay: '2s' }}></div>
