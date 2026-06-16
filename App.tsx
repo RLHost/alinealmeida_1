@@ -21,6 +21,47 @@ import {
   Activity
 } from 'lucide-react';
 
+// ScrollReveal component for triggering transition effects on scroll
+const ScrollReveal = ({ children }: { children: React.ReactNode }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const domRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = domRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={domRef}
+      className={`transition-all duration-1000 ease-out transform ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      }`}
+    >
+      {children}
+    </div>
+  );
+};
+
 // Sub-components defined outside for performance
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,8 +83,18 @@ const Navbar = () => {
           />
         </a>
         <div className="flex gap-4 md:gap-8 items-center">
-          <a href="#servicos" className="text-emerald-900 font-medium hover:text-emerald-600 transition">Serviços</a>
-          <a href="#sobre" className="text-emerald-900 font-medium hover:text-emerald-600 transition">Sobre</a>
+          <a href="#diferenciais" className="text-emerald-900 font-medium hover:text-emerald-600 transition relative group py-2">
+            Diferenciais
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#servicos" className="text-emerald-900 font-medium hover:text-emerald-600 transition relative group py-2">
+            Serviços
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#sobre" className="text-emerald-900 font-medium hover:text-emerald-600 transition relative group py-2">
+            Sobre
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
           <a href="#contato" className="bg-emerald-500 text-white px-5 py-2 rounded-full font-bold hover:bg-emerald-600 transition shadow-lg shadow-emerald-200">Agendar</a>
         </div>
       </div>
@@ -423,10 +474,18 @@ export default function App() {
     <div className="min-h-screen bg-white selection:bg-emerald-200 selection:text-emerald-900">
       <Navbar />
       <Hero />
-      <DifferentialsSection />
-      <ServicesSection />
-      <HowItWorksSection />
-      <AboutSection />
+      <ScrollReveal>
+        <DifferentialsSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <ServicesSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <HowItWorksSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <AboutSection />
+      </ScrollReveal>
       <Footer />
       <FloatingWhatsApp />
     </div>
