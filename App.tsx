@@ -18,7 +18,8 @@ import {
   Shield,
   Users,
   Sparkles,
-  Activity
+  Activity,
+  ChevronDown
 } from 'lucide-react';
 
 // ScrollReveal component for triggering transition effects on scroll
@@ -322,7 +323,7 @@ const ServicesSection = () => {
       title: "Aprendizagem e Desenvolvimento",
       icon: <Brain className="w-6 h-6" />,
       items: [
-        "Psicopedagogia clínica e institucional",
+        "Psicopedagogia clínica e institutional",
         "Neuropsicopedagogia clínica e institucional",
         "Reforço escolar especializado",
         "Tratamento de dificuldades de aprendizagem",
@@ -379,6 +380,8 @@ const ServicesSection = () => {
     }
   ];
 
+  const activeCategory = activeTab >= 0 ? categories[activeTab] : categories[0];
+
   return (
     <section id="servicos" className="py-24 bg-white">
       <div className="container mx-auto px-6">
@@ -387,15 +390,74 @@ const ServicesSection = () => {
           <p className="text-lg text-gray-600">Uma equipe integrada que oferece suporte completo para todas as fases da vida, do neurodesenvolvimento infantil ao acolhimento de idosos.</p>
         </div>
         
-        {/* Responsive Grid/List of Pillars */}
-        <div className="flex flex-col lg:flex-row gap-12 items-start">
+        {/* Mobile Accordion Navigation */}
+        <div className="lg:hidden space-y-4">
+          {categories.map((cat, idx) => {
+            const isOpen = activeTab === idx;
+            return (
+              <div 
+                key={idx} 
+                className={`border rounded-[2rem] overflow-hidden transition-all duration-300 ${
+                  isOpen 
+                    ? 'border-emerald-200 bg-emerald-50/20 shadow-md' 
+                    : 'border-emerald-100 bg-white hover:bg-emerald-50/10'
+                }`}
+              >
+                <button
+                  onClick={() => setActiveTab(isOpen ? -1 : idx)}
+                  className="w-full flex items-center justify-between p-6 font-bold text-left transition-colors text-emerald-900"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`p-2.5 rounded-xl transition-colors ${isOpen ? 'bg-emerald-500 text-white' : 'bg-emerald-100 text-emerald-700'}`}>
+                      {cat.icon}
+                    </div>
+                    <span className="text-base font-bold">{cat.title}</span>
+                  </div>
+                  <ChevronDown className={`w-6 h-6 text-emerald-600 transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                <div 
+                  className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    isOpen ? 'max-h-[800px] opacity-100 border-t border-emerald-100/50' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="p-6 space-y-6">
+                    <ul className="space-y-4">
+                      {cat.items.map((item, itemIdx) => (
+                        <li key={itemIdx} className="flex gap-3 items-start text-gray-700 text-base">
+                          <CheckCircle className="text-emerald-500 w-5 h-5 shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <div className="pt-6 border-t border-emerald-100 flex flex-col gap-4 items-stretch">
+                      <div className="text-gray-500 text-sm text-center">Quer saber mais sobre estas terapias?</div>
+                      <a
+                        href="https://wa.me/5511949494368"
+                        target="_blank"
+                        className="flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-full font-bold hover:bg-sky-600 transition shadow-lg shadow-sky-100"
+                      >
+                        Falar com Especialista
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop Sidebar + Card Layout */}
+        <div className="hidden lg:flex gap-12 items-start">
           {/* Tabs Column */}
-          <div className="w-full lg:w-1/3 flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 scrollbar-none">
+          <div className="w-1/3 flex flex-col gap-3">
             {categories.map((cat, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveTab(idx)}
-                className={`flex items-center gap-4 px-6 py-4 rounded-2xl font-bold text-left transition-all duration-300 shrink-0 lg:shrink-1 ${
+                className={`flex items-center gap-4 px-6 py-4 rounded-2xl font-bold text-left transition-all duration-300 ${
                   activeTab === idx 
                     ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-100 translate-x-2' 
                     : 'bg-emerald-50/50 text-emerald-800 hover:bg-emerald-50'
@@ -404,22 +466,22 @@ const ServicesSection = () => {
                 <div className={`p-2 rounded-xl transition-colors ${activeTab === idx ? 'bg-white/20' : 'bg-emerald-100 text-emerald-700'}`}>
                   {cat.icon}
                 </div>
-                <span className="text-sm md:text-base">{cat.title}</span>
+                <span className="text-base">{cat.title}</span>
               </button>
             ))}
           </div>
 
           {/* Details Content Card */}
-          <div className="w-full lg:w-2/3 bg-emerald-50/30 border border-emerald-100 p-8 md:p-12 rounded-[2.5rem] relative min-h-[380px] flex flex-col justify-between">
+          <div className="w-2/3 bg-emerald-50/30 border border-emerald-100 p-12 rounded-[2.5rem] relative min-h-[380px] flex flex-col justify-between">
             <div className="animate-fade-in" key={activeTab}>
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 bg-emerald-100 text-emerald-700 rounded-2xl">
-                  {categories[activeTab].icon}
+                  {activeCategory.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-emerald-900">{categories[activeTab].title}</h3>
+                <h3 className="text-2xl font-bold text-emerald-900">{activeCategory.title}</h3>
               </div>
               <ul className="space-y-4">
-                {categories[activeTab].items.map((item, idx) => (
+                {activeCategory.items.map((item, idx) => (
                   <li key={idx} className="flex gap-3 items-start text-gray-700 text-lg">
                     <CheckCircle className="text-emerald-500 w-6 h-6 shrink-0 mt-0.5" />
                     <span>{item}</span>
@@ -428,7 +490,7 @@ const ServicesSection = () => {
               </ul>
             </div>
 
-            <div className="mt-8 pt-8 border-t border-emerald-100 flex flex-col sm:flex-row gap-4 items-center justify-between">
+            <div className="mt-8 pt-8 border-t border-emerald-100 flex flex-row gap-4 items-center justify-between">
               <span className="text-gray-500 text-sm">Quer saber mais sobre estas terapias?</span>
               <a
                 href="https://wa.me/5511949494368"
