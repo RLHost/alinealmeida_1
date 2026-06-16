@@ -21,7 +21,8 @@ import {
   Activity,
   ChevronDown,
   Menu,
-  X
+  X,
+  Mail
 } from 'lucide-react';
 
 // ScrollReveal component for triggering transition effects on scroll
@@ -678,6 +679,10 @@ const Footer = () => (
             <li className="flex gap-3">
               <Phone className="w-5 h-5 shrink-0 text-emerald-400" />
               <span className="text-base">(11) 94949-4368</span>
+            </li>
+            <li className="flex gap-3">
+              <Mail className="w-5 h-5 shrink-0 text-emerald-400" />
+              <a href="mailto:contato@espacoadh.com.br" className="text-base hover:text-white transition">contato@espacoadh.com.br</a>
             </li>
           </ul>
         </div>
