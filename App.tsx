@@ -406,10 +406,10 @@ const AboutSection = () => (
 const Footer = () => (
   <footer id="contato" className="bg-emerald-900 text-white pt-24 pb-12">
     <div className="container mx-auto px-6">
-      <div className="grid grid-cols-1 md:grid-cols-[11rem_1fr_1fr_1fr_4rem] gap-12 mb-20 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[12rem_1fr_1fr_1fr_4rem] gap-12 mb-20 items-start">
         {/* Coluna 1: Logo */}
         <div className="flex justify-start w-full">
-          <img src="./espaco_adh.svg" className="w-full object-contain" alt="Logo" />
+          <img src="./espaco_adh.svg" className="w-[9rem] object-contain" alt="Logo" />
         </div>
 
         {/* Coluna 2: Texto e descritivo */}
