@@ -2,12 +2,32 @@
 # Apache Security and Performance Configuration (.htaccess)
 # ----------------------------------------------------------------------
 
-# 1. Prevent Directory Listings
+# 1. Prevent Directory Listings and Server Info Disclosure
 Options -Indexes
+ServerSignature Off
 
-# 2. SPA Friendly Routing (Redirect non-existent files/directories to index.html)
+# 2. Prevent Access to Config, Package, Locks, and Logs
+<FilesMatch "^(package\.json|package-lock\.json|tsconfig\.json|vite\.config\.ts|tailwind\.config\.js|postcss\.config\.js|metadata\.json|\.htaccess|\.git.*|\.env.*)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 3. SPA Friendly Routing & Rewrite Security
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  
+  # Force HTTPS redirection
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  
+  # Prevent Cross-Site Tracing (XST) by disabling TRACE and TRACK
+  RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK) [NC]
+  RewriteRule .* - [F]
   
   # Protect critical system files from being accessed
   RewriteRule ^\.(git|github|env) - [F,L]
@@ -18,7 +38,7 @@ Options -Indexes
   RewriteRule ^(.*)$ index.html [L]
 </IfModule>
 
-# 3. Security Headers
+# 4. Security Headers
 <IfModule mod_headers.c>
   # Avoid Clickjacking by restricting framing
   Header set X-Frame-Options "SAMEORIGIN"
@@ -31,13 +51,22 @@ Options -Indexes
   
   # Control referrer information sent with requests
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Restrict cross-domain Flash/PDF/etc. policy files
+  Header set X-Permitted-Cross-Domain-Policies "none"
+
+  # Restrict browser APIs and sensors
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
   
   # Content Security Policy (CSP)
-  # Allows assets, API connections to Google APIs, fonts, and images from unsplash/picsum
-  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://picsum.photos; connect-src 'self' https://generativelanguage.googleapis.com https://api.github.com;"
+  # Restricts execution, font, styles, and resource loading to minimum required origins
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';"
+
+  # Enable Strict Transport Security (HSTS)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 </IfModule>
 
-# 4. Gzip/Deflate Compression (Performance & Speed)
+# 5. Gzip/Deflate Compression (Performance & Speed)
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json image/svg+xml
   
@@ -45,7 +74,7 @@ Options -Indexes
   Header append Vary User-Agent
 </IfModule>
 
-# 5. Caching Control (Performance & Speed)
+# 6. Caching Control (Performance & Speed)
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
