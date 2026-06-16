@@ -80,7 +80,7 @@ const Navbar = () => {
           <img 
             src="./espaco_adh.svg" 
             alt="Espaço de Aprendizagem & Desenvolvimento Humano" 
-            className={`transition-all duration-300 w-auto object-contain ${isScrolled ? 'h-14' : 'h-20'}`}
+            className={`transition-all duration-300 w-auto object-contain ${isScrolled ? 'h-16' : 'h-24'}`}
           />
         </a>
         <div className="flex gap-4 md:gap-8 items-center">
