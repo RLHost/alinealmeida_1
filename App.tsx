@@ -406,48 +406,58 @@ const AboutSection = () => (
 const Footer = () => (
   <footer id="contato" className="bg-emerald-900 text-white pt-24 pb-12">
     <div className="container mx-auto px-6">
-      <div className="grid md:grid-cols-4 gap-12 mb-20">
-        <div className="col-span-2 space-y-6">
-          <div className="space-y-4">
-            <img src="./espaco_adh.svg" className="w-[30%] object-contain" alt="Logo" />
-            <h4 className="font-bold text-xl md:text-2xl leading-tight">Espaço de Aprendizagem e Desenvolvimento Humano</h4>
-          </div>
-          <p className="text-emerald-100 text-lg max-w-sm">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 items-start">
+        {/* Coluna 1: Logo */}
+        <div className="flex justify-start">
+          <img src="./espaco_adh.svg" className="w-[80%] max-w-[180px] object-contain" alt="Logo" />
+        </div>
+
+        {/* Coluna 2: Texto e descritivo */}
+        <div className="space-y-4">
+          <h4 className="font-bold text-xl leading-tight">Espaço de Aprendizagem e Desenvolvimento Humano</h4>
+          <p className="text-emerald-100 text-base leading-relaxed">
             Ambiente multidisciplinar dedicado ao desenvolvimento cognitivo, emocional e social para promover autonomia e qualidade de vida.
           </p>
-          <div className="flex gap-4">
-            <a href="https://www.instagram.com/espaco_de_aprendizagem_e_desen" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition">
-              <Instagram className="w-6 h-6" />
-            </a>
-            <a href="https://maps.app.goo.gl/7TCULuwgKj2kBXZu8" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition">
-              <MapPin className="w-6 h-6" />
-            </a>
-          </div>
         </div>
-        <div>
-          <h4 className="font-bold text-xl mb-6">Localização</h4>
+
+        {/* Coluna 3: Localização */}
+        <div className="space-y-6">
+          <h4 className="font-bold text-xl">Localização</h4>
           <ul className="space-y-4 text-emerald-100">
             <li className="flex gap-3">
               <MapPin className="w-5 h-5 shrink-0 text-emerald-400" />
-              <span>R. Padre Luiz Martini, 75 - Vila Sao Joaquim, Cotia - SP, 06700-467</span>
+              <span className="text-base">R. Padre Luiz Martini, 75 - Vila Sao Joaquim, Cotia - SP, 06700-467</span>
             </li>
             <li className="flex gap-3">
               <Phone className="w-5 h-5 shrink-0 text-emerald-400" />
-              <span>(11) 94949-4368</span>
+              <span className="text-base">(11) 94949-4368</span>
             </li>
           </ul>
         </div>
-        <div>
-          <h4 className="font-bold text-xl mb-6">Horários</h4>
-          <ul className="space-y-4 text-emerald-100">
-            <li className="flex gap-3">
+
+        {/* Coluna 4: Horário e link sociais */}
+        <div className="space-y-6">
+          <div>
+            <h4 className="font-bold text-xl mb-4">Horários</h4>
+            <div className="flex gap-3 text-emerald-100">
               <Clock className="w-5 h-5 shrink-0 text-emerald-400" />
               <div>
-                <p>Segunda a Sábado</p>
+                <p className="text-base font-medium">Segunda a Sábado</p>
                 <p className="text-sm text-emerald-300">Com horários agendados</p>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
+          <div className="space-y-3">
+            <h5 className="font-bold text-sm text-emerald-300 uppercase tracking-wider">Redes Sociais</h5>
+            <div className="flex gap-4">
+              <a href="https://www.instagram.com/espaco_de_aprendizagem_e_desen" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition">
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a href="https://maps.app.goo.gl/7TCULuwgKj2kBXZu8" target="_blank" className="p-3 bg-emerald-800 rounded-full hover:bg-emerald-700 transition">
+                <MapPin className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div className="border-t border-emerald-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-emerald-300 gap-4 text-center">
