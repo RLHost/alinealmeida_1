@@ -408,9 +408,9 @@ const Footer = () => (
     <div className="container mx-auto px-6">
       <div className="grid md:grid-cols-4 gap-12 mb-20">
         <div className="col-span-2 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <img src="./espaco_adh.svg" className="w-[60%] bg-white p-3 rounded-2xl object-contain" alt="Logo" />
-            <span className="font-bold text-lg md:text-xl leading-tight">Espaço de Aprendizagem e Desenvolvimento Humano</span>
+          <div className="space-y-4">
+            <img src="./espaco_adh.svg" className="w-[30%] object-contain" alt="Logo" />
+            <h4 className="font-bold text-xl md:text-2xl leading-tight">Espaço de Aprendizagem e Desenvolvimento Humano</h4>
           </div>
           <p className="text-emerald-100 text-lg max-w-sm">
             Ambiente multidisciplinar dedicado ao desenvolvimento cognitivo, emocional e social para promover autonomia e qualidade de vida.
