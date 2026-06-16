@@ -105,6 +105,12 @@ const Navbar = () => {
 const Hero = () => {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [positions, setPositions] = useState([
+    { top: "-4%", left: "-4%", right: "auto" },
+    { top: "10%", right: "-4%", left: "auto" },
+    { top: "85%", left: "-4%", right: "auto" },
+    { top: "50%", right: "-4%", left: "auto" }
+  ]);
 
   const card1Options = [
     { label: "Autismo & Transtornos", desc: "Neurodesenvolvimento", icon: "Puzzle" },
@@ -150,6 +156,12 @@ const Hero = () => {
       setVisible(false);
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % 3);
+        setPositions([
+          { top: `${Math.floor(Math.random() * 14) - 4}%`, left: `${Math.floor(Math.random() * 14) - 4}%`, right: 'auto' },
+          { top: `${Math.floor(Math.random() * 20) + 5}%`, right: `${Math.floor(Math.random() * 14) - 4}%`, left: 'auto' },
+          { top: `${Math.floor(Math.random() * 15) + 75}%`, left: `${Math.floor(Math.random() * 14) - 4}%`, right: 'auto' },
+          { top: `${Math.floor(Math.random() * 20) + 45}%`, right: `${Math.floor(Math.random() * 14) - 4}%`, left: 'auto' }
+        ]);
         setVisible(true);
       }, 500);
     }, 4500);
@@ -217,7 +229,10 @@ const Hero = () => {
             />
           </div>
           {/* Floating cards */}
-          <div className={`absolute -top-6 -left-6 bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`}>
+          <div 
+            style={{ ...positions[0], transitionDelay: '0ms' }}
+            className={`absolute bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`}
+          >
             <div className="bg-sky-100 p-2 rounded-2xl text-sky-600">
               <Icon1 className="w-6 h-6" />
             </div>
@@ -227,7 +242,10 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className={`absolute top-10 -right-6 bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`} style={{ transitionDelay: '100ms' }}>
+          <div 
+            style={{ ...positions[1], transitionDelay: '100ms' }}
+            className={`absolute bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`}
+          >
             <div className="bg-emerald-100 p-2 rounded-2xl text-emerald-600">
               <Icon2 className="w-6 h-6" />
             </div>
@@ -237,7 +255,10 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className={`absolute -bottom-6 -left-6 bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`} style={{ transitionDelay: '200ms' }}>
+          <div 
+            style={{ ...positions[2], transitionDelay: '200ms' }}
+            className={`absolute bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`}
+          >
             <div className="bg-amber-100 p-2 rounded-2xl text-amber-600">
               <Icon3 className="w-6 h-6" />
             </div>
@@ -247,7 +268,10 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className={`absolute bottom-1/3 -right-8 bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`} style={{ transitionDelay: '300ms' }}>
+          <div 
+            style={{ ...positions[3], transitionDelay: '300ms' }}
+            className={`absolute bg-white py-3 px-5 rounded-3xl shadow-xl z-20 flex items-center gap-3 transition-all duration-500 transform ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`}
+          >
             <div className="bg-rose-100 p-2 rounded-2xl text-rose-600">
               <Icon4 className="w-6 h-6" />
             </div>
