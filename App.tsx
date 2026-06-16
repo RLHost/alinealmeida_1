@@ -314,7 +314,7 @@ const AboutSection = () => (
         <div className="relative">
           <div className="absolute -inset-4 bg-emerald-200 rounded-[4rem] rotate-3 opacity-50"></div>
           <img 
-            src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=800&q=80" 
+            src="./foto_aline_almeida.jpg" 
             alt="Aline Almeida" 
             className="relative rounded-[4rem] shadow-2xl z-10 w-full object-cover aspect-[4/5]"
           />
